@@ -2,11 +2,9 @@ describe ("Airport", function(){
 
   var airport;
   var plane;
-  var weather;
 
   beforeEach(function(){
-    airport = new Airport(16, weather);
-    weather = new Weather();
+    airport = new Airport(16);
     plane = "plane";
   });
 
