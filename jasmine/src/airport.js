@@ -15,7 +15,7 @@ Airport.prototype.land = function (plane) {
   }
 };
 
-Airport.prototype.take_off = function (plane) {
+Airport.prototype.takeOff = function (plane) {
   if (this.isStormy()) {
     throw new Error("Too stormy for take off!");
   } else {

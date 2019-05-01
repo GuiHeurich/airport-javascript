@@ -5,7 +5,7 @@ describe ("Airport", function(){
   var weather;
 
   beforeEach(function(){
-    airport = new Airport();
+    airport = new Airport(16, weather);
     weather = new Weather();
     plane = "plane";
   });
@@ -24,13 +24,13 @@ describe ("Airport", function(){
     it("instructs a plane to take off when not stormy", function(){
       spyOn(airport, 'isStormy').and.returnValue(false);
       airport.land(plane);
-      airport.take_off(plane);
+      airport.takeOff(plane);
       expect(airport.planes).not.toContain(plane);
     });
 
     it("prevents a plane from taking off when stormy", function() {
       spyOn(airport, 'isStormy').and.returnValue(true);
-      expect( function() { airport.take_off(plane); }).toThrow(new Error("Too stormy for take off!"))
+      expect( function() { airport.takeOff(plane); }).toThrow(new Error("Too stormy for take off!"))
     });
 
     it('prevents a plane from landing if landed planes is equal to 16', function() {
