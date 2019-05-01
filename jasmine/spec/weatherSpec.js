@@ -1,3 +1,5 @@
+'use strict';
+
 describe ("Weather", function() {
 
   var weather;
@@ -5,18 +7,14 @@ describe ("Weather", function() {
     weather = new Weather();
   });
 
-
-  describe ("When stormy", function() {
-    it ("returns true", function() {
-      spyOn(weather, "isStormy").and.returnValue(true);
-      expect(weather.isStormy()).toEqual(true)
+    it ("is stormy", function() {
+      spyOn(Math, 'random').and.returnValue(1);
+      expect(weather.isStormy()).toBeTruthy();
     });
-  });
 
-  describe ("When NOT stormy", function() {
-    it ("returns false", function() {
-      spyOn(weather, "isStormy").and.returnValue(false);
-      expect(weather.isStormy()).toEqual(false)
+    it ("is not stormy", function() {
+      spyOn(Math, 'random').and.returnValue(0);
+      expect(weather.isStormy()).toBeFalsy();
     });
-  });
+
 });
